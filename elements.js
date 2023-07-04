@@ -1,5 +1,4 @@
 export {
-  username,
   slides,
   drillsWrapper,
   drillsImgs,

@@ -1,7 +1,9 @@
 import {
   slides,
-  leftDoor,
-  rightDoor,
+  Door,
+  Window,
+  /*leftDoor,
+  rightDoor,*/
   leftFurniture,
   rightFurniture,
   leftWindow,
@@ -10,7 +12,7 @@ import {
   rightTool,
   drillsWrapper,
   drillsImgs,
-  doorsImgs,
+  /*doorsImgs,*/
   furnitureImgs,
   windowImgs,
   drillsTag,
@@ -20,7 +22,7 @@ import {
   hammersTag,
   screwDriverTag,
   miscllnTag,
-  doorsImgsArray,
+  /*doorsImgsArray,*/
   defaultfurnituresImgsArray,
   sofaImgsArray,
   fauteuilImgsArray,
@@ -82,135 +84,110 @@ for(i = 0; i < drillsWrapper.children.length; i++)
     drillsWrapper.children[i].style.display = 'none';
   }
 }
-//slides controls
-function isDoorContainerLeftScrollable()
-{
-  if(doorsImgs[0].getAttribute('src') == doorsImgsArray[0])
-  {
-    leftDoor.style.display = "none";
-  }
-  else
-  {
-     leftDoor.style.display = "flex";
-  }
-}
-
-function isDoorContainerRightScrollable()
-{
-  if(doorsImgs[1].getAttribute('src') == doorsImgsArray[doorsImgsArray.length-1])
-  {
-    rightDoor.style.display = "none";
-  }
-  else
-  {
-     rightDoor.style.display = "flex";
-  }
-}
-isDoorContainerLeftScrollable();
+//DOORS CONTROL
+Door.isDoorContainerLeftScrollable();
 let doorIndex1 = 0;
 let doorIndex2 = 1;
-leftDoor.addEventListener("click", (e) => {
+Door.leftDoor.addEventListener("click", (e) => {
     //some code
     doorIndex1 -= 2;
     doorIndex2 -= 2;
     if(doorIndex1 <= 0)
     {
-      leftDoor.style.display = "none";
-      rightDoor.style.display = "flex";
+      Door.leftDoor.style.display = "none";
+      Door.rightDoor.style.display = "flex";
       //doorIndex1 = doorsImgs.length-1;
       //doorIndex2 = doorsImgs.length;
     }
     
-    doorsImgs[0].setAttribute("src",doorsImgsArray[doorIndex1]);
-    doorsImgs[1].setAttribute("src",doorsImgsArray[doorIndex2]);
+    Door.doorsImgs[0].setAttribute("src",Door.doorsImgsArray[doorIndex1]);
+    Door.doorsImgs[1].setAttribute("src",Door.doorsImgsArray[doorIndex2]);
     
     //isDoorContainerLeftScrollable();
-    isDoorContainerRightScrollable();
+    Door.isDoorContainerRightScrollable();
 
 });
 
-rightDoor.addEventListener("click", (e) => {
+Door.rightDoor.addEventListener("click", (e) => {
     doorIndex1 += 2;
     doorIndex2 += 2;
-    if(doorIndex2 >= doorsImgs.length-2)
+    if(doorIndex2 >= Door.doorsImgs.length-2)
     {
-      rightDoor.style.display = "none";
+      Door.rightDoor.style.display = "none";
     }
     else
     {
-      rightDoor.style.display = "flex";
+      Door.rightDoor.style.display = "flex";
     }
     
-    doorsImgs[0].setAttribute("src",doorsImgsArray[doorIndex1]);
-    doorsImgs[1].setAttribute("src",doorsImgsArray[doorIndex2]);
+    Door.doorsImgs[0].setAttribute("src",Door.doorsImgsArray[doorIndex1]);
+    Door.doorsImgs[1].setAttribute("src",Door.doorsImgsArray[doorIndex2]);
     
-    isDoorContainerLeftScrollable();
-    let evValue = "Right click on door";
-    printEv();
+    Door.isDoorContainerLeftScrollable();
 });
 
 // WINDOWS CONTROL BUTTONS
 function isWindowContainerLeftScrollable()
 {
-  if(windowImgs[0].getAttribute('src') == windowImgsArray[0])
+  if(Window.windowImgs[0].getAttribute('src') == Window.windowImgsArray[0])
   {
-    leftWindow.style.display = "none";
+    Window.leftWindow.style.display = "none";
   }
   else
   {
-    leftWindow.style.display = "flex";
+    Window.leftWindow.style.display = "flex";
   }
 }
 function isWindowContainerrightScrollable()
 {
-  if(windowImgs[1].getAttribute('src') == windowImgsArray[windowImgsArray.length-1])
+  if(Window.windowImgs[1].getAttribute('src') == Window.windowImgsArray[Window.windowImgsArray.length-1])
   {
-    rightWindow.style.display = "none";
+    Window.rightWindow.style.display = "none";
   }
   else
   {
-    rightWindow.style.display = "flex";
+    Window.rightWindow.style.display = "flex";
   }
 }
 isWindowContainerLeftScrollable();
 let windowIndex1 = 0;
 let windowIndex2 = 1;
-leftWindow.addEventListener("click", (e) => {
+Window.leftWindow.addEventListener("click", (e) => {
   
     windowIndex1 -= 2;
     windowIndex2 -= 2;
     if(windowIndex1 <= 0)
     {
-      leftWindow.style.display = "none";
-      rightWindow.style.display = "flex";
+      Window.leftWindow.style.display = "none";
+      Window.rightWindow.style.display = "flex";
     }
     else
     {
-      leftWindow.style.display = "flex";
+      Window.leftWindow.style.display = "flex";
     }
     
-    windowImgs[0].setAttribute("src",windowImgsArray[windowIndex1]);
-    windowImgs[1].setAttribute("src",windowImgsArray[windowIndex2]);
+    Window.windowImgs[0].setAttribute("src",Window.windowImgsArray[windowIndex1]);
+    Window.windowImgs[1].setAttribute("src",Window.windowImgsArray[windowIndex2]);
     
     isWindowContainerLeftScrollable();
     isWindowContainerrightScrollable();
 });
 
-rightWindow.addEventListener("click", (e) => {
+Window.rightWindow.addEventListener("click", (e) => {
   
     windowIndex1 += 2;
     windowIndex2 += 2;
-    if(windowIndex2 >= windowImgs.length-1)
+    if(windowIndex2 >= Window.windowImgs.length-1)
     {
-      rightWindow.style.display = "none";
+      Window.rightWindow.style.display = "none";
     }
     else
     {
-      rightWindow.style.display = "flex";
+      Window.rightWindow.style.display = "flex";
     }
     
-    windowImgs[0].setAttribute("src",windowImgsArray[windowIndex1]);
-    windowImgs[1].setAttribute("src",windowImgsArray[windowIndex2]);
+    Window.windowImgs[0].setAttribute("src",Window.windowImgsArray[windowIndex1]);
+    Window.windowImgs[1].setAttribute("src",Window.windowImgsArray[windowIndex2]);
     
     isWindowContainerLeftScrollable();
    //isWindowContainerrightScrollable();

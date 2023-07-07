@@ -138,7 +138,6 @@ div img
 {
   .articles_title, .window_title, .tools_title, .furniture_title
   {
-    
     margin-top: 98px;
     margin-left: 98px;
   }
@@ -148,6 +147,7 @@ div img
     width: 80vw;
     padding-top: 0;
     margin: auto;
+    margin-top: 20px;
     border-bottom: 2px solid green;
     box-sizing: border-box;
     display: flex;

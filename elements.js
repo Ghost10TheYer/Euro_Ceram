@@ -2,20 +2,29 @@ export {
   slides,
   leftDoor,
   rightDoor,
+  leftFurniture,
+  rightFurniture,
   leftWindow,
   rightWindow,
   leftTool,
   rightTool,
   drillsWrapper,
   doorsImgs,
+  furnitureImgs,
   windowImgs,
   drillsImgs,
+  sofaTag,
+  armoireTag,
+  fauteuilTag,
   drillsTag,
   hammersTag,
   screwDriverTag,
   miscllnTag,
   defaultToolsImgsPathArray,
   doorsImgsArray,
+  defaultfurnituresImgsArray,
+  sofaImgsArray,
+  fauteuilImgsArray,
   windowImgsArray,
   drillsImgsPathArray,
   hammersImgsPathArray,
@@ -26,6 +35,8 @@ export {
 /*selecting the needed elements on the document*/
 const leftDoor = document.querySelector('.leftDoor');
 const rightDoor = document.querySelector('.rightDoor');
+const leftFurniture = document.querySelector(".leftFurniture");
+const rightFurniture = document.querySelector(".rightFurniture");
 const leftWindow = document.querySelector(".leftWindow");
 const rightWindow = document.querySelector(".rightWindow");
 const leftTool = document.querySelector(".leftTools");
@@ -34,9 +45,16 @@ const slides = document.querySelectorAll('.img_container');
 const drillsWrapper= document.querySelector(".drills_wrapper");
 
 const doorsImgs = document.querySelectorAll(".doorsImgs");
+const furnitureImgs = document.querySelectorAll(".furnitureImgs");
 const windowImgs = document.querySelectorAll(".windowImgs");
 const drillsImgs = document.querySelectorAll('.drills');
 
+/* ========= FURNITURE TAG ==========*/
+const sofaTag = document.querySelector(".sofa")
+const fauteuilTag = document.querySelector(".fauteuil");
+const armoireTag = document.querySelector(".fauteuil")
+
+/* =========== TOOLS TAG ============*/
 const drillsTag = document.getElementById('drills');
 const hammersTag = document.getElementById('hammers');
 const screwDriverTag = document.getElementById('screw_Driver');
@@ -56,6 +74,35 @@ const doorsImgsArray = [
   "Images/Portes/TRIANON-Porte-intérieure-bois-Style-Pasquet-Menuiseries-ayous.jpg",
   "Images/Portes/porte-s-ouvre-nouvelle-composition-du-monde_23-2150172143~2.jpg",
   "Images/Portes/porte-bois-brown_1194-635.webp"
+  ];
+const sofaImgsArray = [
+  "Images/Sofa/canape-gris-deux-places-deux-coussins-isole_176382-98.webp",
+  "Images/Sofa/canape-gris-vecteur-realiste-canape-blanc_134830-675.jpg",
+  "Images/Sofa/canape-isole-vue-face-isometrique-transparent_646331-10.jpg",
+  "Images/Sofa/canape-tissu-gris-moderne-oreillers-isoles-blanc_115128-218.webp",
+  "Images/Sofa/conception-interieur-psd-maquette-salon-contemporain_53876-129130.webp",
+  "Images/Sofa/illustration-realiste-canape-cuir-rouge_1284-12133.webp",
+  "Images/Sofa/interieur-salon-retro_53876-109286.webp",
+  "Images/Sofa/isometric-sofa-3d-rendu-isole_28315-12397.webp",
+  "Images/Sofa/salon-chic-moderne-style-esthetique-luxe-dans-tons-bleus_53876-125839.webp"
+  ];
+const defaultfurnituresImgsArray = [
+  "Images/Sofa/canape-gris-deux-places-deux-coussins-isole_176382-98.webp",
+  "Images/Sofa/canape-gris-vecteur-realiste-canape-blanc_134830-675.jpg",
+  "Images/Sofa/canape-isole-vue-face-isometrique-transparent_646331-10.jpg",
+  "Images/Sofa/canape-tissu-gris-moderne-oreillers-isoles-blanc_115128-218.webp",
+  "Images/Sofa/conception-interieur-psd-maquette-salon-contemporain_53876-129130.webp",
+  "Images/Sofa/illustration-realiste-canape-cuir-rouge_1284-12133.webp",
+  "Images/Sofa/interieur-salon-retro_53876-109286.webp",
+  "Images/Sofa/isometric-sofa-3d-rendu-isole_28315-12397.webp",
+  "Images/Sofa/salon-chic-moderne-style-esthetique-luxe-dans-tons-bleus_53876-125839.webp"
+  ];
+const fauteuilImgsArray = [
+  "Images/Sofa/fauteuil-confortable-gris-isole-fond-blanc_181624-25295.webp",
+  "Images/Sofa/fauteuil-gris-elegant-coussin-isole_176382-115.webp",
+  "Images/Sofa/fauteuil-oreiller_176382-860.webp",
+  "Images/Sofa/fauteuil-oreiller_176382-861.webp",
+  "Images/Sofa/fauteuil-oreiller_176382-870.webp"
   ];
 const windowImgsArray = [
     "Images/Window/ensemble-fenetres-cintrees-realistes_1284-11041.webp",

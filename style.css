@@ -8,13 +8,13 @@ body
 {
   height: 200vh;
 }
-.articles_title, .window_title, .tools_title
+.articles_title, .window_title, .tools_title, .furniture_title
 {
   margin-top: 60px;
   margin-left: 10px;
   text-shadow: 3px 3px 5px #c3b8b8;
 }
-.tools_title ~ span
+.tools_title ~ span, .furniture_title ~ span
 {
   display: inline-block;
   border: 1px solid #000;
@@ -23,7 +23,7 @@ body
   padding: 5px;
   border-radius: 5px;
 }
-.tools_title ~ span:hover, .tools_title ~ span:focus
+.tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
 {
   background-color: #000;
   color: #FFF;
@@ -136,7 +136,7 @@ div img
 
 @media screen and (orientation: landscape), (min-width:700px)
 {
-  .articles_title, .window_title, .tools_title
+  .articles_title, .window_title, .tools_title, .furniture_title
   {
     
     margin-top: 98px;
@@ -221,11 +221,11 @@ div img
   height: 300px;
   object-fit: scale-down;
 }
-.tools_title + span
+.tools_title + span, .furniture_title + span
 {
   margin-left: 98px;
 }
-.tools_title ~ span
+.tools_title ~ span, .furniture_title ~ span
 {
   display: inline-block;
   border: 1px solid #000;
@@ -233,7 +233,7 @@ div img
   padding: 5px;
   border-radius: 5px;
 }
-.tools_title ~ span:hover, .tools_title ~ span:focus
+.tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
 {
   background-color: #000;
   color: #FFF;

@@ -2,6 +2,8 @@ import {
   slides,
   leftDoor,
   rightDoor,
+  leftFurniture,
+  rightFurniture,
   leftWindow,
   rightWindow,
   leftTool,
@@ -9,12 +11,19 @@ import {
   drillsWrapper,
   drillsImgs,
   doorsImgs,
+  furnitureImgs,
   windowImgs,
   drillsTag,
+  sofaTag,
+  armoireTag,
+  fauteuilTag,
   hammersTag,
   screwDriverTag,
   miscllnTag,
   doorsImgsArray,
+  defaultfurnituresImgsArray,
+  sofaImgsArray,
+  fauteuilImgsArray,
   windowImgsArray,
   defaultToolsImgsPathArray,
   drillsImgsPathArray,
@@ -140,7 +149,7 @@ rightDoor.addEventListener("click", (e) => {
     printEv();
 });
 
-// Window control buttons
+// WINDOWS CONTROL BUTTONS
 function isWindowContainerLeftScrollable()
 {
   if(windowImgs[0].getAttribute('src') == windowImgsArray[0])
@@ -208,7 +217,7 @@ rightWindow.addEventListener("click", (e) => {
 });
 
 
-// TOOLS CONTROLS
+// TOOLS CONTROLS BUTTONS
 /*
 1- By default the defaultToolsImgsPathArray will contain the drills img [yes]
 */
@@ -275,4 +284,80 @@ rightTool.addEventListener("click", (e) => {
    drillsImgs[1].setAttribute('src', defaultToolsImgsPathArray[toolIndex2]);
     isToolsContainerLeftScrollable();
     //isToolsContainerRightScrollable();
+});
+
+//FURNITURE CONTROL BUTTONS
+// TAGS
+function replaceDoorsBySofa()
+{
+  let i = 0;
+  for(i = 0; i < furnitureImgs.length; i++)
+  {
+    defaultfurnituresImgsArray[i] = sofaImgsArray[i];
+    furnitureImgs[i].setAttribute('src', defaultfurnituresImgsArray[i]);
+    furnitureImgs[i].setAttribute("alt","un de nos canapé");
+  }
+}
+replaceDoorsBySofa();
+sofaTag.addEventListener("click", (e) => {
+  replaceDoorsBySofa();
+  
+});
+fauteuilTag.addEventListener("click", (e) => {
+  let i = 0;
+  for(i = 0; i < furnitureImgs.length; i++)
+  {
+    defaultfurnituresImgsArray[i] = fauteuilImgsArray[i]
+    furnitureImgs[i].setAttribute('src', defaultfurnituresImgsArray[i]);
+    furnitureImgs[i].setAttribute("alt","un de nos fauteuils");
+  }
+});
+
+// ARROWS
+let furnitureIndex1 = 0;
+let furnitureIndex2 = 1;
+function isFurnitContainerLeftScrollable()
+{
+  if(furnitureImgs[0].getAttribute('src') == defaultfurnituresImgsArray[0])
+  {
+    leftFurniture.style.display = "none";
+  }
+  else
+  {
+    leftFurniture.style.display = "flex";
+  }
+}
+function isFurnitContainerRightScrollable()
+{
+  if(furnitureIndex2 >= furnitureImgs.length-1)
+  {
+    rightFurniture.style.display = "none";
+  }
+  else
+  {
+    rightFurniture.style.display = "flex";
+  }
+}
+isFurnitContainerLeftScrollable();
+
+leftFurniture.addEventListener("click", (e) => {
+  furnitureIndex1 -= 2;
+  furnitureIndex2 -= 2;
+  
+  furnitureImgs[0].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex1]);
+  furnitureImgs[1].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex2]);
+  isFurnitContainerLeftScrollable();
+  isFurnitContainerRightScrollable();
+  
+});
+
+rightFurniture.addEventListener("click", (e) => {
+  furnitureIndex1 += 2;
+  furnitureIndex2 += 2;
+  
+  
+  furnitureImgs[0].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex1]);
+  furnitureImgs[1].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex2]);
+  isFurnitContainerLeftScrollable();
+  isFurnitContainerRightScrollable();
 });

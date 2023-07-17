@@ -14,16 +14,21 @@ body
   margin-left: 10px;
   text-shadow: 3px 3px 5px #c3b8b8;
 }
-.tools_title ~ span, .furniture_title ~ span
+.tags_container
+{
+  width: 95vw;
+  margin: auto;
+}
+.tools_title ~ .tags_container span, .furniture_title ~ .tags_container span
 {
   display: inline-block;
   border: 1px solid #000;
-  margin-left: 10px;
   margin-top: 20px;
   padding: 5px;
   border-radius: 5px;
+  margin-right: 4px;
 }
-.tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
+.tools_title + .tags_container span:hover, .tools_title + .tags_container span:focus, .furniture_title + .tags_container span:hover, .furniture_title + .tags_container span:focus
 {
   background-color: #000;
   color: #FFF;
@@ -131,8 +136,9 @@ div img
 {
   .articles_title, .window_title, .tools_title, .furniture_title
   {
+    width: 80vw;
+    margin: auto;
     margin-top: 98px;
-    margin-left: 98px;
   }
   .articles_wrapper
   {
@@ -214,19 +220,21 @@ div img
     height: 300px;
     object-fit: scale-down;
   }
-  .tools_title + span, .furniture_title + span
+  .tags_container
   {
-    margin-left: 98px;
+    width: 80vw;
+    margin: auto;
   }
-  .tools_title ~ span, .furniture_title ~ span
+  .tools_title ~ .tags_container span, .furniture_title ~ .tags_container span
   {
     display: inline-block;
     border: 1px solid #000;
     margin-top: 20px;
+    margin-right: 10px;
     padding: 5px;
     border-radius: 5px;
   }
-  .tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
+  .tools_title ~ .tags_container span:hover, .tools_title ~ .tags_container span:focus, .furniture_title ~ .tags_container span:hover, .furniture_title ~ .tags_container span:focus
   {
     background-color: #000;
     color: #FFF;

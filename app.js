@@ -1,89 +1,11 @@
 import {
-  slides,
   Door,
   Window,
-  /*leftDoor,
-  rightDoor,*/
-  leftFurniture,
-  rightFurniture,
-  leftWindow,
-  rightWindow,
-  leftTool,
-  rightTool,
-  drillsWrapper,
-  drillsImgs,
-  /*doorsImgs,*/
-  furnitureImgs,
-  windowImgs,
-  drillsTag,
-  sofaTag,
-  armoireTag,
-  fauteuilTag,
-  hammersTag,
-  screwDriverTag,
-  miscllnTag,
-  /*doorsImgsArray,*/
-  defaultfurnituresImgsArray,
-  sofaImgsArray,
-  fauteuilImgsArray,
-  windowImgsArray,
-  defaultToolsImgsPathArray,
-  drillsImgsPathArray,
-  hammersImgsPathArray,
-  screwDrvImgsPathArray,
-  miscllnImgsPathArray
+  Furniture,
+  Tools
 } 
 from "./elements.js";
 
-
-/* ==== drills tag event lstner ===*/
-drillsTag.addEventListener("click", (e)=>{
-  for(i = 0; i < drillsImgs.length; i++)
-  {
-   drillsImgs[i].setAttribute('src', drillsImgsPathArray[i]);
-   drillsImgs[i].setAttribute('alt', "une perceuse");
-   defaultToolsImgsPathArray[i] = drillsImgsPathArray[i];
-  }
-});
-
-/* ==== Hammers tag event lstner ===*/
-hammersTag.addEventListener("click", (e)=>{
-  for(i = 0; i < drillsImgs.length; i++)
-  {
-   drillsImgs[i].setAttribute('src', hammersImgsPathArray[i]);
-   drillsImgs[i].setAttribute('alt', "un marteau");
-   defaultToolsImgsPathArray[i] = hammersImgsPathArray[i];
-  }
-});
-
-/* ==== Hammers tag event lstner ===*/
-screwDriverTag.addEventListener("click", (e)=>{
-  for(i = 0; i < drillsImgs.length; i++)
-  {
-   drillsImgs[i].setAttribute('src', screwDrvImgsPathArray[i]);
-   drillsImgs[i].setAttribute('alt', "une tourne vis");
-   defaultToolsImgsPathArray[i] = screwDrvImgsPathArray[i];
-  }
-});
-/* ==== Miscellaneous tag event lstner ===*/
-miscllnTag.addEventListener("click", (e)=>{
-  for(i = 0; i < drillsImgs.length; i++)
-  {
-   drillsImgs[i].setAttribute('src', miscllnImgsPathArray[i]);
-   drillsImgs[i].setAttribute('alt', "outils divers");
-   defaultToolsImgsPathArray[i] = miscllnImgsPathArray[i];
-  }
-});
-
-//===getting rid of the empty containers===
-let i = 0;
-for(i = 0; i < drillsWrapper.children.length; i++)
-{
-  if(i > 7)
-  {
-    drillsWrapper.children[i].style.display = 'none';
-  }
-}
 //DOORS CONTROL
 Door.isDoorContainerLeftScrollable();
 let doorIndex1 = 0;
@@ -126,30 +48,8 @@ Door.rightDoor.addEventListener("click", (e) => {
     Door.isDoorContainerLeftScrollable();
 });
 
-// WINDOWS CONTROL BUTTONS
-function isWindowContainerLeftScrollable()
-{
-  if(Window.windowImgs[0].getAttribute('src') == Window.windowImgsArray[0])
-  {
-    Window.leftWindow.style.display = "none";
-  }
-  else
-  {
-    Window.leftWindow.style.display = "flex";
-  }
-}
-function isWindowContainerrightScrollable()
-{
-  if(Window.windowImgs[1].getAttribute('src') == Window.windowImgsArray[Window.windowImgsArray.length-1])
-  {
-    Window.rightWindow.style.display = "none";
-  }
-  else
-  {
-    Window.rightWindow.style.display = "flex";
-  }
-}
-isWindowContainerLeftScrollable();
+// WINDOWS CONTROL
+Window.isWindowContainerLeftScrollable();
 let windowIndex1 = 0;
 let windowIndex2 = 1;
 Window.leftWindow.addEventListener("click", (e) => {
@@ -169,8 +69,8 @@ Window.leftWindow.addEventListener("click", (e) => {
     Window.windowImgs[0].setAttribute("src",Window.windowImgsArray[windowIndex1]);
     Window.windowImgs[1].setAttribute("src",Window.windowImgsArray[windowIndex2]);
     
-    isWindowContainerLeftScrollable();
-    isWindowContainerrightScrollable();
+    Window.isWindowContainerLeftScrollable();
+    Window.isWindowContainerrightScrollable();
 });
 
 Window.rightWindow.addEventListener("click", (e) => {
@@ -189,152 +89,119 @@ Window.rightWindow.addEventListener("click", (e) => {
     Window.windowImgs[0].setAttribute("src",Window.windowImgsArray[windowIndex1]);
     Window.windowImgs[1].setAttribute("src",Window.windowImgsArray[windowIndex2]);
     
-    isWindowContainerLeftScrollable();
+    Window.isWindowContainerLeftScrollable();
    //isWindowContainerrightScrollable();
 });
 
-
-// TOOLS CONTROLS BUTTONS
-/*
-1- By default the defaultToolsImgsPathArray will contain the drills img [yes]
-*/
-/*
-2- but when we click on given tag the imgs in that array will be dynamically replaced by other imgs related to the clicked tag. [yes]
-*/
-console.log(defaultToolsImgsPathArray);
-console.log(drillsImgs);
-
-/*
-// I'll use a for Loop to iterate on the arrays and replace each items in them.
-
-3- The tools arrows will have a class leftTools-rightTools[yes]
-*/
-function isToolsContainerLeftScrollable()
-{
-  if(drillsImgs[0].getAttribute('src') == defaultToolsImgsPathArray[0])
-    {
-      leftTool.style.display = "none";
-    }
-    else
-    {
-      leftTool.style.display = "flex";
-    }
-}
-function isToolsContainerRightScrollable()
-{
-  if(drillsImgs[1].getAttribute('src') == defaultToolsImgsPathArray[defaultToolsImgsPathArray.length-1])
-  {
-    rightTool.style.display = "none";
-  }
-  else
-  {
-    rightTool.style.display = "flex";
-  }
-}
-isToolsContainerLeftScrollable();
-
-let toolIndex1 = 0;
-let toolIndex2 = 1;
-
-leftTool.addEventListener("click", (e) => {
-   toolIndex1 -= 2;
-   toolIndex2 -= 2;
-   
-   drillsImgs[0].setAttribute('src', defaultToolsImgsPathArray[toolIndex1]);
-   drillsImgs[1].setAttribute('src', defaultToolsImgsPathArray[toolIndex2]);
-    isToolsContainerLeftScrollable();
-    isToolsContainerRightScrollable();
+Furniture.replaceDoorsBySofa();
+Furniture.sofaTag.addEventListener("click", (e) => {
+  Furniture.replaceDoorsBySofa();
+  
 });
-rightTool.addEventListener("click", (e) => {
-   toolIndex1 += 2;
-   toolIndex2 += 2;
-   if(toolIndex2 >= defaultToolsImgsPathArray.length-2)
+Furniture.fauteuilTag.addEventListener("click", (e) => {
+  let i = 0;
+  for(i = 0; i < Furniture.furnitureImgs.length; i++)
+  {
+    Furniture.defaultfurnituresImgsArray[i] = Furniture.fauteuilImgsArray[i];
+   Furniture.furnitureImgs[i].setAttribute('src', Furniture.defaultfurnituresImgsArray[i]);
+   Furniture.furnitureImgs[i].setAttribute("alt","un de nos fauteuils");
+  }
+});
+
+// FURNITURE ARROWS
+Furniture.isFurnitContainerLeftScrollable();
+
+Furniture.leftFurniture.addEventListener("click", (e) => {
+  Furniture.furnitureIndex1 -= 2;
+  Furniture.furnitureIndex2 -= 2;
+  
+  Furniture.furnitureImgs[0].setAttribute('src', Furniture.defaultfurnituresImgsArray[Furniture.furnitureIndex1]);
+  Furniture.furnitureImgs[1].setAttribute('src', Furniture.defaultfurnituresImgsArray[Furniture.furnitureIndex2]);
+  Furniture.isFurnitContainerLeftScrollable();
+  Furniture.isFurnitContainerRightScrollable();
+  
+});
+
+Furniture.rightFurniture.addEventListener("click", (e) => {
+  Furniture.furnitureIndex1 += 2;
+  Furniture.furnitureIndex2 += 2;
+  
+  
+  Furniture.furnitureImgs[0].setAttribute('src', Furniture.defaultfurnituresImgsArray[Furniture.furnitureIndex1]);
+  Furniture.furnitureImgs[1].setAttribute('src', Furniture.defaultfurnituresImgsArray[Furniture.furnitureIndex2]);
+  Furniture.isFurnitContainerLeftScrollable();
+  Furniture.isFurnitContainerRightScrollable();
+});
+
+//TOOLS CONTROL
+
+/* ==== drills tag event lstner ===*/
+Tools.drillsTag.addEventListener("click", (e)=>{
+  for(let i = 0; i < Tools.drillsImgs.length; i++)
+  {
+   Tools.drillsImgs[i].setAttribute('src', Tools.drillsImgsPathArray[i]);
+   Tools.drillsImgs[i].setAttribute('alt', "une perceuse");
+   Tools.defaultToolsImgsPathArray[i] = Tools.drillsImgsPathArray[i];
+  }
+});
+
+/* ==== Hammers tag event lstner ===*/
+Tools.hammersTag.addEventListener("click", (e)=>{
+  for(let i = 0; i < Tools.drillsImgs.length; i++)
+  {
+   Tools.drillsImgs[i].setAttribute('src', Tools.hammersImgsPathArray[i]);
+   Tools.drillsImgs[i].setAttribute('alt', "un marteau");
+   Tools.defaultToolsImgsPathArray[i] = Tools.hammersImgsPathArray[i];
+  }
+});
+
+/* ==== ScrewDriver tag event lstner ===*/
+Tools.screwDriverTag.addEventListener("click", (e)=>{
+  for(let i = 0; i < Tools.drillsImgs.length; i++)
+  {
+   Tools.drillsImgs[i].setAttribute('src', Tools.screwDrvImgsPathArray[i]);
+   Tools.drillsImgs[i].setAttribute('alt', "une tourne vis");
+   Tools.defaultToolsImgsPathArray[i] = Tools.screwDrvImgsPathArray[i];
+  }
+});
+/* ==== Miscellaneous tag event lstner ===*/
+Tools.miscllnTag.addEventListener("click", (e)=>{
+  for(let i = 0; i < Tools.drillsImgs.length; i++)
+  {
+   Tools.drillsImgs[i].setAttribute('src', Tools.miscllnImgsPathArray[i]);
+   Tools.drillsImgs[i].setAttribute('alt', "outils divers");
+   Tools.defaultToolsImgsPathArray[i] = Tools.miscllnImgsPathArray[i];
+  }
+});
+
+//===getting rid of the empty containers===
+Tools.deleteEmptyContainers();
+//===getting rid of the empty containers===
+
+Tools.isToolsContainerLeftScrollable();
+Tools.leftTool.addEventListener("click", (e) => {
+   Tools.toolIndex1 -= 2;
+   Tools.toolIndex2 -= 2;
+   
+   Tools.drillsImgs[0].setAttribute('src', Tools.defaultToolsImgsPathArray[Tools.toolIndex1]);
+   Tools.drillsImgs[1].setAttribute('src', Tools.defaultToolsImgsPathArray[Tools.toolIndex2]);
+    Tools.isToolsContainerLeftScrollable();
+    Tools.isToolsContainerRightScrollable();
+});
+Tools.rightTool.addEventListener("click", (e) => {
+   Tools.toolIndex1 += 2;
+   Tools.toolIndex2 += 2;
+   if(Tools.toolIndex2 >= Tools.defaultToolsImgsPathArray.length-2)
    {
-     rightTool.style.display = "none";
+     Tools.rightTool.style.display = "none";
    }
    else
    {
-     rightTool.style.display = "flex";
+     Tools.rightTool.style.display = "flex";
    }
    
-   drillsImgs[0].setAttribute('src', defaultToolsImgsPathArray[toolIndex1]);
-   drillsImgs[1].setAttribute('src', defaultToolsImgsPathArray[toolIndex2]);
-    isToolsContainerLeftScrollable();
+   Tools.drillsImgs[0].setAttribute('src', Tools.defaultToolsImgsPathArray[Tools.toolIndex1]);
+   Tools.drillsImgs[1].setAttribute('src', Tools.defaultToolsImgsPathArray[Tools.toolIndex2]);
+    Tools.isToolsContainerLeftScrollable();
     //isToolsContainerRightScrollable();
-});
-
-//FURNITURE CONTROL BUTTONS
-// TAGS
-function replaceDoorsBySofa()
-{
-  let i = 0;
-  for(i = 0; i < furnitureImgs.length; i++)
-  {
-    defaultfurnituresImgsArray[i] = sofaImgsArray[i];
-    furnitureImgs[i].setAttribute('src', defaultfurnituresImgsArray[i]);
-    furnitureImgs[i].setAttribute("alt","un de nos canapé");
-  }
-}
-replaceDoorsBySofa();
-sofaTag.addEventListener("click", (e) => {
-  replaceDoorsBySofa();
-  
-});
-fauteuilTag.addEventListener("click", (e) => {
-  let i = 0;
-  for(i = 0; i < furnitureImgs.length; i++)
-  {
-    defaultfurnituresImgsArray[i] = fauteuilImgsArray[i]
-    furnitureImgs[i].setAttribute('src', defaultfurnituresImgsArray[i]);
-    furnitureImgs[i].setAttribute("alt","un de nos fauteuils");
-  }
-});
-
-// ARROWS
-let furnitureIndex1 = 0;
-let furnitureIndex2 = 1;
-function isFurnitContainerLeftScrollable()
-{
-  if(furnitureImgs[0].getAttribute('src') == defaultfurnituresImgsArray[0])
-  {
-    leftFurniture.style.display = "none";
-  }
-  else
-  {
-    leftFurniture.style.display = "flex";
-  }
-}
-function isFurnitContainerRightScrollable()
-{
-  if(furnitureIndex2 >= furnitureImgs.length-1)
-  {
-    rightFurniture.style.display = "none";
-  }
-  else
-  {
-    rightFurniture.style.display = "flex";
-  }
-}
-isFurnitContainerLeftScrollable();
-
-leftFurniture.addEventListener("click", (e) => {
-  furnitureIndex1 -= 2;
-  furnitureIndex2 -= 2;
-  
-  furnitureImgs[0].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex1]);
-  furnitureImgs[1].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex2]);
-  isFurnitContainerLeftScrollable();
-  isFurnitContainerRightScrollable();
-  
-});
-
-rightFurniture.addEventListener("click", (e) => {
-  furnitureIndex1 += 2;
-  furnitureIndex2 += 2;
-  
-  
-  furnitureImgs[0].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex1]);
-  furnitureImgs[1].setAttribute('src', defaultfurnituresImgsArray[furnitureIndex2]);
-  isFurnitContainerLeftScrollable();
-  isFurnitContainerRightScrollable();
 });

@@ -73,10 +73,6 @@ div img
   height: 150px;
   object-fit: scale-down;
 }
-.three_bolt_door
-{
-  
-}
 .items_info
 {
   padding: 20px 0 0 10px;
@@ -130,9 +126,6 @@ div img
 {
   font-size: 3rem;
 }
-
-
-
 
 @media screen and (orientation: landscape), (min-width:700px)
 {
@@ -216,31 +209,30 @@ div img
     opacity: 1;
   }
   div img
-{
-  width: 300px;
-  height: 300px;
-  object-fit: scale-down;
+  {
+    width: 300px;
+    height: 300px;
+    object-fit: scale-down;
+  }
+  .tools_title + span, .furniture_title + span
+  {
+    margin-left: 98px;
+  }
+  .tools_title ~ span, .furniture_title ~ span
+  {
+    display: inline-block;
+    border: 1px solid #000;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
+  {
+    background-color: #000;
+    color: #FFF;
+  }
+  img.drills:nth-of-type(10)
+  {
+    display: none;
+  }
 }
-.tools_title + span, .furniture_title + span
-{
-  margin-left: 98px;
-}
-.tools_title ~ span, .furniture_title ~ span
-{
-  display: inline-block;
-  border: 1px solid #000;
-  margin-top: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
-.tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
-{
-  background-color: #000;
-  color: #FFF;
-}
-img.drills:nth-of-type(10)
-{
-  display: none;
-}
-}
-/*just a comment*/

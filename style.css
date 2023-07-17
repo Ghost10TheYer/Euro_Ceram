@@ -8,13 +8,13 @@ body
 {
   height: 200vh;
 }
-.articles_title, .window_title, .tools_title
+.articles_title, .window_title, .tools_title, .furniture_title
 {
   margin-top: 60px;
   margin-left: 10px;
   text-shadow: 3px 3px 5px #c3b8b8;
 }
-.tools_title ~ span
+.tools_title ~ span, .furniture_title ~ span
 {
   display: inline-block;
   border: 1px solid #000;
@@ -23,7 +23,7 @@ body
   padding: 5px;
   border-radius: 5px;
 }
-.tools_title ~ span:hover, .tools_title ~ span:focus
+.tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
 {
   background-color: #000;
   color: #FFF;
@@ -39,7 +39,6 @@ body
   margin-bottom: 50px;
   border-radius: 5px;
   box-shadow: 3px 9px 9px #d8d6d6;
-  scroll-snap-type: x mandatory;
 }
 .articles_wrapper
 {
@@ -64,8 +63,8 @@ div.img_container
   align-items: center;
   box-shadow: 3px 3px 9px #e1dbdb;
   position: relative;
-  scroll-snap-align: end;
   scroll-snap-stop: always;
+  flex-shrink: 0;
 }
 
 div img
@@ -73,10 +72,6 @@ div img
   width: 150px;
   height: 150px;
   object-fit: scale-down;
-}
-.three_bolt_door
-{
-  
 }
 .items_info
 {
@@ -132,40 +127,41 @@ div img
   font-size: 3rem;
 }
 
-
-
-
 @media screen and (orientation: landscape), (min-width:700px)
 {
-  .articles_title, .window_title, .tools_title
+  .articles_title, .window_title, .tools_title, .furniture_title
   {
-    
     margin-top: 98px;
     margin-left: 98px;
   }
   .articles_wrapper
   {
     height: 500px;
-    width: fit-content;
+    width: 80vw;
     padding-top: 0;
+    margin: auto;
+    margin-top: 20px;
     border-bottom: 2px solid green;
+    box-sizing: border-box;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: start;
+    overflow-x: hidden;
   }
   .articles_container
   {
     height: 510px;
-    position: relative;
     width: 80vw;
-    overflow-x: scroll;
+    margin: auto;
+    position: relative;
+    overflow: visible;
   }
   div.img_container
   {
-    height: fit-content;
-    width: fit-content;
-    margin: 40px 30px 40px 50px;
-    scroll-snap-align: center;
+    height: 300px;
+    width: 300px;
+    margin: 40px 30px 40px 60px;
+    flex-shrink: 0;
   }
   .items_info
   {
@@ -183,35 +179,60 @@ div img
   }
   .arrows
   {
-    color: red;
-    display: none;
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    z-index: 600;
+    position: absolute;
+    top: 50%;
+    background-color: #000;
+    opacity: .3;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  .left
+  {
+    left: 0;
+    transform: translate(-50%,-50%);
+  }
+  .right
+  {
+    right: 0;
+    transform: translate(50%,-50%);
+  }
+  .arrows:hover
+  {
+    opacity: 1;
   }
   div img
-{
-  width: 300px;
-  height: 300px;
-  object-fit: scale-down;
+  {
+    width: 300px;
+    height: 300px;
+    object-fit: scale-down;
+  }
+  .tools_title + span, .furniture_title + span
+  {
+    margin-left: 98px;
+  }
+  .tools_title ~ span, .furniture_title ~ span
+  {
+    display: inline-block;
+    border: 1px solid #000;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .tools_title ~ span:hover, .tools_title ~ span:focus, .furniture_title ~ span:hover, .furniture_title ~ span:focus
+  {
+    background-color: #000;
+    color: #FFF;
+  }
+  img.drills:nth-of-type(10)
+  {
+    display: none;
+  }
 }
-.tools_title + span
-{
-  margin-left: 98px;
-}
-.tools_title ~ span
-{
-  display: inline-block;
-  border: 1px solid #000;
-  margin-top: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
-.tools_title ~ span:hover, .tools_title ~ span:focus
-{
-  background-color: #000;
-  color: #FFF;
-}
-img.drills:nth-of-type(10)
-{
-  display: none;
-}
-}
-/*just a comment*/

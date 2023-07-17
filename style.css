@@ -6,7 +6,7 @@
 }
 body
 {
-  height: 200vh;
+  height: fit-content;
 }
 .articles_title, .window_title, .tools_title, .furniture_title
 {
@@ -44,6 +44,10 @@ body
   margin-bottom: 50px;
   border-radius: 5px;
   box-shadow: 3px 9px 9px #d8d6d6;
+}
+.drills_container
+{
+  margin-bottom: 20px;
 }
 .articles_wrapper
 {
@@ -161,6 +165,10 @@ div img
     margin: auto;
     position: relative;
     overflow: visible;
+  }
+  .drills_container
+  {
+    margin-bottom: 60px;
   }
   div.img_container
   {

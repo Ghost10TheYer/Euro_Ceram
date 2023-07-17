@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width:device-width, initial-scale=1" />
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="fonts.css" type="text/css" media="all" />
-  </head>
-  <body>
-    <!-- === Header === -->
+<?php
+error_reporting(0);
+ini_set("display_errors", 0);
+?>
+  <!-- === Header === -->
     <h2 class="articles_title">Nos Portes</h2>
     <!-- === Header === -->
     
@@ -545,8 +539,3 @@
       <div class="arrows left leftTools">&lt;</div>
           <div class="arrows right rightTools">&gt;</div>
     </section>
-    
-    <!-- === script === -->
-  <script src="app.js" type="module" charset="utf-8" async="true"></script>
-  </body>
-</html>

@@ -63,7 +63,7 @@ __NOTE__: make sure you specify the type attribute to "__module__" if you decide
 ```
     
     
-And that wraps it up. That's all you need to enjoy my work, have fun using it and modifying it at your will broh ;).
+And that wraps it up. That's all you need to enjoy my work, have fun using it and modifying it at your will ;).
 
 <br><br>
 

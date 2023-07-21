@@ -68,14 +68,3 @@ And that wraps it up. That's all you need to enjoy my work, have fun using it an
 <br><br>
 
 _DevIsDevil, with Regards_.
-
-<style>
-p:nth-of-type(1)
-{
-  opacity: .6;
-}
-h2
-{
-  text-shadow: 2px 2px 10px #ccc5c5;
-}
-</style>
